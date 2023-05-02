@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dividindo a tela</title>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: row;
+			height: 100vh;
+		}
+
+		.left {
+			flex: 1;
+			background-color: #eee;
+		}
+
+		.right {
+			flex: 1;
+			border: 1px solid black;
+			padding: 10px;
+		}
+
+		iframe {
+			width: 100%;
+			height: 100%;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="left"></div>
+		<div class="right">
+			<iframe src="https://www.google.com/"></iframe>
+		</div>
+	</div>
+</body>
+</html>
