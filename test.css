@@ -20,3 +20,9 @@
     height: 100%;
     border: none;
   }
+  
+  button#action {
+    position: relative;
+    margin: auto;
+    height: 20px;
+  }

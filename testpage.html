@@ -2,36 +2,17 @@
 <html>
 <head>
 	<title>Dividindo a tela</title>
-	<style>
-		.container {
-			display: flex;
-			flex-direction: row;
-			height: 100vh;
-		}
-
-		.left {
-			flex: 1;
-			background-color: #eee;
-		}
-
-		.right {
-			flex: 1;
-			border: 1px solid black;
-			padding: 10px;
-		}
-
-		iframe {
-			width: 100%;
-			height: 100%;
-			border: none;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="test.css">
+	<script src="main.js"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="left"></div>
+		<div class="left">
+			<button id="action" onclick="addPoint()">Click Aqui</button>
+		</div>
+		
 		<div class="right">
-			<iframe src="malha.html"></iframe>
+			<iframe id="loader" src="garrafa.html"></iframe>
 		</div>
 	</div>
 </body>
