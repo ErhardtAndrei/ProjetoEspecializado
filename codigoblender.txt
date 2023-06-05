@@ -1,0 +1,41 @@
+import bpy
+
+def GenerateMesh(coords):
+    r = 1
+
+    # create the Curve Datablock
+    #curveData = bpy.data.curves.new('myCurve', type='CURVE')
+    curveData = bpy.data.curves.new('myCurve', type='CURVE')
+    curveData.dimensions = '3D'
+    curveData.resolution_u = 2
+
+    curveData.bevel_depth = r*0.5;
+
+    # map coords to spline
+    polyline = curveData.splines.new('NURBS')
+
+    polyline.points.add(len(coords))
+    for i, coord in enumerate(coords):
+        x,y,z = coord
+        polyline.points[i].co = (x, y, z, 1)
+
+    # create Object
+    curveOB = bpy.data.objects.new('myCurve', curveData)
+
+    # attach to scene and validate context
+
+    scn = bpy.context.scene
+    #scn.objects.link(curveOB)
+    bpy.context.collection.objects.link(curveOB)
+    #scn.objects.active = curveOB
+
+    #curveOB.select = True
+
+    bpy.ops.export_scene.gltf(filepath="C:/Users/WellitonMartins/Documents/UFSC/Projeto Especializado/Python/Examples/FileGenerateBySCRIPT")
+    #bpy.ops.export_scene.b4w_html(filepath="C:/desenv/ProjetoEspecializado/malha.html")
+
+vectPoints = [(1, 1, 1), (2, 2, 2), (3, 3, 3)]
+GenerateMesh(vectPoints)
+
+bpy.ops.wm.quit_blender()
+sys.exit()
